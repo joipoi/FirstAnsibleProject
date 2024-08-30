@@ -11,7 +11,6 @@ I am using ssh keys for authentication
 * **handlePrograms.yml:** Playbook for installing/updating/removing programs or services
 
 # Questions
-* How should i divide up plays, is this too split up?
 * How do i keep track of problems on the hosts, should i use event-driven ansible?
 * Are the following relevent for this project or important to learn: polkit, PKCS #11, System-wide cryptographic policies, FIPS, USBGuard
 * When to use others Ansible roles/collections and when to use your own
@@ -19,9 +18,9 @@ I am using ssh keys for authentication
 
 
 # Todo(possibilities)
-* Create a ansible role for this project
+* Create an ansible role for this project
 * Add Cronjobs for scheduled tasks or playbooks, including vulnerability scans and AIDE integrity checks
-* send logging data to the ansible controller(rsyslog)
+* Send logging data to the ansible controller(rsyslog)
 * Add custom fapolicyd rules
 * Keylime
 * LUKS
@@ -33,7 +32,7 @@ I am using ssh keys for authentication
 * Event driven ansible
 
 # Sources
-* [ssh settings](https://www.redhat.com/sysadmin/locking-down-sshd)
-* [disabling software & restricting ports](https://www.redhat.com/sysadmin/harden-new-system-ansible)
-* [AIDE, auditd, and more](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/index) 
-* [Ansible modules](https://docs.ansible.com/ansible/latest/collections/index_module.html#ansible-builtin)  
+* [redhat.com article - locking-down-sshd](https://www.redhat.com/sysadmin/locking-down-sshd)
+* [redhat.com article - 5 ways to harden a new system with Ansible](https://www.redhat.com/sysadmin/harden-new-system-ansible)
+* [Red hat Security hardening documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/index) 
+* [Ansible docs, list of modules](https://docs.ansible.com/ansible/latest/collections/index_module.html#ansible-builtin)  

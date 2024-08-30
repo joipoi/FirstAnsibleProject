@@ -4,9 +4,9 @@
     name: '*'
     state: latest
 - name: Remove undesirable packages
-    package:
-      name: "{{ unnecessary_software }}"
-      state: absent
+  package:
+    name: "{{ unnecessary_software }}"
+    state: absent
 
 - name: Stop and disable unnecessary services
   service:
@@ -21,11 +21,11 @@
     name: audit
     state: present  
 
- - name: Start Auditd service
-   service:
-     name: auditd
-     state: started
-     enabled: yes
+- name: Start Auditd service
+  service:
+    name: auditd
+    state: started
+    enabled: yes
         
 - name: Ensure AIDE package is installed
   package:

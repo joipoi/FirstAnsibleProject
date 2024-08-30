@@ -1,5 +1,5 @@
 ---
-- hosts: [webservers]
+- hosts: webservers
   become: true
   vars:
     allowed_ssh_networks:
@@ -7,7 +7,7 @@
     unnecessary_services:
     - postfix
     - telnet
-  unnecessary_software:
+    unnecessary_software:
     - tcpdump
     - nmap-ncat
     - wpa_supplicant

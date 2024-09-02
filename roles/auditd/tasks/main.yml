@@ -1,0 +1,11 @@
+---
+- name: Ensure Auditd package is installed
+  package:
+    name: audit
+    state: present  
+
+- name: Start Auditd service
+  service:
+    name: auditd
+    state: started
+    enabled: yes

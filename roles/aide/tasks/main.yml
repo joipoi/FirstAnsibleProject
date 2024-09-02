@@ -1,0 +1,9 @@
+---
+- name: Ensure AIDE package is installed
+  package:
+    name: aide
+    state: present
+
+- name: Initialize AIDE database
+  command: aide --init
+  

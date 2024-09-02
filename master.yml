@@ -1,19 +1,11 @@
 ---
 - hosts: webservers
   become: true
-  vars:
-    allowed_ssh_networks:
-     - 192.168.56.101
-    unnecessary_services:
-    - postfix
-    - telnet
-    unnecessary_software:
-    - tcpdump
-    - nmap-ncat
-    - wpa_supplicant
+  roles:
+    - managePrograms
+    - firewall
+    - aide
+    - fapolicyd
+    - auditd
+    - ssh
     
-  tasks:
-    - name: install / remove software
-      import_tasks: handlePrograms.yml
-    - name: harden ssh
-      import_tasks: ssh.yml

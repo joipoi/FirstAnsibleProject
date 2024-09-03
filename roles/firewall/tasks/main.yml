@@ -9,4 +9,5 @@
     name: firewalld
     state: started
     enabled: yes
-      
+- name: set log denied to all
+  command: firewall-cmd --set-log-denied=all

@@ -7,3 +7,16 @@
 - name: Initialize AIDE database
   command: aide --init
   
+- name: Copy aide.conf
+  ansible.builtin.copy:
+    src: files/aide.conf
+    dest: /etc/aide.conf
+    
+  # output will be written to /var/log/aide/aide.log as stated in aide.conf
+- name: Create cronjob for aide check once a day
+  ansible.builtin.cron:
+    name: "Run aide check"
+    minute: "0"
+    hour: "4"
+    job: "aide --check"
+  

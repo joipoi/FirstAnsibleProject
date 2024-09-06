@@ -4,14 +4,18 @@
     name: aide
     state: present
 
-- name: Initialize AIDE database
-  command: aide --init
-  
 - name: Copy aide.conf
   ansible.builtin.copy:
     src: files/aide.conf
     dest: /etc/aide.conf
     
+- name: Initialize AIDE database
+  command: aide --init
+  
+- name: start using aide database
+  command: "mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz"
+
+        
   # output will be written to /var/log/aide/aide.log as stated in aide.conf
 - name: Create cronjob for aide check once a day
   ansible.builtin.cron:

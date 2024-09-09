@@ -18,4 +18,4 @@
 - name: Configure audit.conf
   ansible.builtin.copy:
     src: files/auditd.conf.j2
-    dest: /etc/auditd/audit.conf
+    dest: /etc/audit/auditd.conf

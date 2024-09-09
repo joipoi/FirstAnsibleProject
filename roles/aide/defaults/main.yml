@@ -1,1 +1,5 @@
 ---
+aide_DBDIR: /var/lib/aide
+aide_LOGDIR: /var/log/aide
+aide_cron_hour: "4"
+aide_cron_weekday: "*"

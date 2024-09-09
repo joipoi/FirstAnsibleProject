@@ -4,9 +4,9 @@
     name: aide
     state: present
 
-- name: Copy aide.conf
+- name: Configure aide.conf
   ansible.builtin.copy:
-    src: files/aide.conf
+    src: files/aide.conf.j2
     dest: /etc/aide.conf
     
 - name: Initialize AIDE database
@@ -21,6 +21,7 @@
   ansible.builtin.cron:
     name: "Run aide check"
     minute: "0"
-    hour: "4"
+    hour: {{aide_cron_hour}}
+    weekday: {{aide_cron_weekday}}
     job: "aide --check"
   

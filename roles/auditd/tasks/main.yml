@@ -10,7 +10,12 @@
     state: started
     enabled: yes
     
-- name: Copy audit.rules
+- name: Configure audit.rules
   ansible.builtin.copy:
     src: files/audit.rules
     dest: /etc/audit/audit.rules
+    
+- name: Configure audit.conf
+  ansible.builtin.copy:
+    src: files/auditd.conf.j2
+    dest: /etc/auditd/audit.conf

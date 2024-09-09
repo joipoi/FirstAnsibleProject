@@ -1,4 +1,4 @@
 ---
-num_logs: 5
-max_log_file: 8
-max_log_file_action: ROTATE
+auditd_num_logs: 5
+auditd_max_log_file: 8
+auditd_max_log_file_action: ROTATE

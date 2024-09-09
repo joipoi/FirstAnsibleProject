@@ -15,7 +15,7 @@
     src: files/audit.rules
     dest: /etc/audit/audit.rules
     
-- name: Configure audit.conf
-  ansible.builtin.copy:
+- name: Configure auditd.conf
+  ansible.builtin.template:
     src: files/auditd.conf.j2
     dest: /etc/audit/auditd.conf

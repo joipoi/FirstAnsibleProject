@@ -9,5 +9,38 @@
     name: firewalld
     state: started
     enabled: yes
+    
 - name: set log denied to all
   command: firewall-cmd --set-log-denied=all
+  
+- name: Create new firewall zone
+  firewalld:
+    zone: "{{ custom_zone_name }}"
+    state: present
+    permanent: yes
+  when: use_custom_default_zone | bool
+
+- name: Add services to the new zone
+  firewalld:
+    zone: "{{ custom_zone_name }}"
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  loop: "{{ custome_zone_services }}"
+  when: use_custom_default_zone | bool
+  
+- name: Add ports to the new zone
+  firewalld:
+    zone: "{{ custom_zone_name }}"
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+  loop: "{{ custom_zone_ports }}"
+  when: use_custom_default_zone | bool
+  
+- name: Set the new zone as default
+  firewalld:
+    default_zone: "{{ custom_zone_name }}"
+    state: enabled
+    permanent: yes
+   when: use_custom_default_zone | bool

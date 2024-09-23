@@ -1,1 +1,5 @@
 ---
+use_custom_default_zone: false
+custom_zone_name: custom_zone
+custome_zone_services: []
+custom_zone_ports: []

@@ -38,9 +38,10 @@
   loop: "{{ custom_zone_ports }}"
   when: use_custom_default_zone | bool
   
+- name: Reload firewalld
+  command: firewall-cmd --reload
+  when: use_custom_default_zone | bool
+  
 - name: Set the new zone as default
-  firewalld:
-    default_zone: "{{ custom_zone_name }}"
-    state: enabled
-    permanent: yes
-   when: use_custom_default_zone | bool
+  command: firewall-cmd --set-default-zone={{ custom_zone_name }}
+  when: use_custom_default_zone | bool
